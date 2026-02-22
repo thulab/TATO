@@ -350,46 +350,6 @@ bash scripts/timer_runs/run_timer.sh
 bash scripts/timer_runs/run_timer.sh
 ```
 
-3. **Run all models in batch**:
-```bash
-# Run all models sequentially
-for dir in scripts/*_runs/; do
-    model=$(basename $dir _runs)
-    echo "=== Running ${model} model ==="
-    if [ -f "${dir}/run_${model}.sh" ]; then
-        bash "${dir}/run_${model}.sh"
-    fi
-    echo ""
-done
-```
-
-#### Compatibility Script
-- `scripts/run_all.sh` - Compatibility script that guides users to the new structure
-
-### Custom Experiment Scripts
-
-Create custom experiment scripts in the `scripts/` directory:
-
-```bash
-#!/bin/bash
-# scripts/custom_experiment.sh
-
-for DATASET in "ETTh1" "ETTh2" "Weather"
-do
-    for MODEL in "Timer-LOTSA" "MOIRAI-base" "Chronos-tiny"
-    do
-        python experiment/run.py \
-            --device cuda:0 \
-            --dataset $DATASET \
-            --model $MODEL \
-            --pred_len 96 \
-            --train_trials 300 \
-            --num_samples 800 \
-            --save_dir "./results/${DATASET}_${MODEL}"
-    done
-done
-```
-
 ## 🔬 Research Extensions
 
 ### Extending TATO for Your Research
