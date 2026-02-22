@@ -1,0 +1,61 @@
+# Model Configuration File
+# This file defines all available models and their checkpoint paths
+
+models:
+  # Timer models
+  Timer-UTSD:
+    class: Timer
+    ckpt_path: CKPT/Building_timegpt_d1024_l8_p96_n64_new_full.ckpt
+    description: "Timer model with UTSD architecture"
+    requires_args: true
+    
+  Timer-LOTSA:
+    class: Timer
+    ckpt_path: CKPT/Large_timegpt_d1024_l8_p96_n64_new_full.ckpt
+    description: "Timer model with LOTSA architecture"
+    requires_args: true
+  
+  # MOIRAI models
+  MOIRAI-small:
+    class: MOIRAI
+    ckpt_path: CKPT/MOIRAI-small
+    description: "Small MOIRAI model"
+    requires_args: false
+    
+  MOIRAI-base:
+    class: MOIRAI
+    ckpt_path: CKPT/MOIRAI-base
+    description: "Base MOIRAI model"
+    requires_args: false
+    
+  MOIRAI-large:
+    class: MOIRAI
+    ckpt_path: CKPT/MOIRAI-large
+    description: "Large MOIRAI model"
+    requires_args: false
+  
+  # Chronos models
+  Chronos-tiny:
+    class: Chronos
+    ckpt_path: CKPT/Chronos-tiny
+    description: "Tiny Chronos model"
+    requires_args: false
+  
+  # Sundial models
+  Sundial:
+    class: Sundial
+    ckpt_path: CKPT/sundial
+    description: "Sundial model (requires transformers 4.40.1)"
+    requires_args: true
+
+# Model class mappings
+model_classes:
+  Timer: "model.model_factory.Timer"
+  MOIRAI: "model.model_factory.MOIRAI"
+  Chronos: "model.model_factory.Chronos"
+  Sundial: "model.model_factory.Sundial"
+
+# Default settings
+defaults:
+  device: "cuda:0"
+  dtype: "float32"

@@ -1,0 +1,13 @@
+__pycache__/
+results/
+CKPT/
+CKPT
+DATASET/
+DATASET
+*.csv
+*.out
+*.log
+*.txt
+*.png
+*.pt
+venv_*/
