@@ -246,8 +246,9 @@ class Transformation(BaseTransformation):
         # Inverse transformation
         return restored_data
 ```
+2. Add the transformation name "custom_transform" to the "transformation_names" in the experiment script, and to the "infer_mode_*" in PipelineFactory. (Other optional replacements are ignored here.)
 
-2. The transformation will be automatically discovered by the factory.
+3. The transformation will be automatically discovered by the factory.
 
 ### Integration with New Models
 
